@@ -38,8 +38,7 @@ public class Logger {
 		
 		try {
 			bw = new BufferedWriter(new FileWriter(new File(logLocation + sdfLog.format(this.date) + ".log"), true));
-			bw.write("<" + sdfMessage.format(this.date) + ">:" + message + "\n");
-			bw.newLine();
+			bw.write("<" + sdfMessage.format(this.date) + ">: \r\n" + message.replace("\n", "\r\n") + "\r\n"); //windows format for newline
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.exit(0);
